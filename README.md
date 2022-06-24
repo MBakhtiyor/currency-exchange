@@ -8,3 +8,6 @@
 
 
 Starts on port 8080 via docker compose.
+
+TODO
++ Add tests
