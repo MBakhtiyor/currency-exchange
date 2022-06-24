@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:14
+    volumes:
+      - app-db-data:/var/lib/postgresql/data/pgdata
+    env_file:
+      - .env
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432
+
+  backend:
+    build: .
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8080 --reload
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/my_app
+
+volumes:
+  app-db-data:
