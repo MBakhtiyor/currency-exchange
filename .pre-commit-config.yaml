@@ -23,7 +23,6 @@ repos:
     hooks:
       - id: flake8
         additional_dependencies: [ flake8-typing-imports==1.10.0 ]
-        exclude: ^app/core_kit/app_utils.py
   - repo: https://github.com/pre-commit/mirrors-autopep8
     rev: v1.6.0
     hooks:
@@ -32,4 +31,3 @@ repos:
     rev: v0.960
     hooks:
       - id: mypy
-        exclude: ^tests/
